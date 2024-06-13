@@ -1,0 +1,450 @@
+[gd_scene load_steps=20 format=3 uid="uid://cfa6mfme2qc3w"]
+
+[ext_resource type="Shader" path="res://assets/Shaders/PSX.gdshader" id="1_x1k3d"]
+[ext_resource type="Script" path="res://scripts/Menu/sensLabel.gd" id="2_3bvsf"]
+[ext_resource type="Shader" path="res://assets/Shaders/ChromaticAberration.gdshader" id="2_5smlj"]
+[ext_resource type="Script" path="res://scripts/Menu/frameslab.gd" id="3_05b6o"]
+[ext_resource type="MeshLibrary" uid="uid://cur4vno1raan4" path="res://assets/tileset.tres" id="3_yf7v7"]
+[ext_resource type="FontFile" uid="uid://b5lbnxcj4gkg3" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="3_ylsg8"]
+[ext_resource type="Script" path="res://scripts/Menu/MenuScript.gd" id="4_j0nx0"]
+[ext_resource type="AudioStream" uid="uid://dh22jicqs0o08" path="res://assets/sounds/atmosphere-dark-1-16883.mp3" id="6_0ubbl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26nq0"]
+shader = ExtResource("1_x1k3d")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 32
+shader_parameter/dither_size = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a2lfp"]
+shader = ExtResource("2_5smlj")
+shader_parameter/r_displacement = Vector2(0.75, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-0.75, 0)
+
+[sub_resource type="Environment" id="Environment_nt7nx"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.923462, 0.917707, 0.839921, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.01
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.946632, 0.908824, 0.836566, 1)
+fog_light_energy = 0.02
+fog_density = 0.4
+fog_height_density = 16.0
+volumetric_fog_density = 0.1635
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bdp1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26h81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a15tb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c3wd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4no21"]
+
+[sub_resource type="Animation" id="Animation_eagp5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.004, 1.2, 0.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.309, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D/SpotLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8.556]
+}
+
+[sub_resource type="Animation" id="Animation_hdphd"]
+resource_name = "new_animation"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.004, 1.2, 0.3), Vector3(3.46576, 1.2, 0.3), Vector3(8.03929, 1.2, 0.3), Vector3(11.2285, 1.2, 0.3), Vector3(14.4435, 1.2, 0.939637), Vector3(14.7027, 1.2, 4.09259)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.30258, 0), Vector3(0, -1.42421, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.96105, 0), Vector3(0, -2.6126, 0), Vector3(0, -3.05782, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D/SpotLight3D:light_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.3, 2.7, 3.1, 3.6, 4.2, 4.6, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [8.556, 3.223, 4.423, 5.801, 8.662, 4.936, 7.869, 3.074, 8.421, 3.981, 2.377, 5.4665, 8.466]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cg7t0"]
+_data = {
+"RESET": SubResource("Animation_eagp5"),
+"new_animation": SubResource("Animation_hdphd")
+}
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+process_mode = 1
+material = SubResource("ShaderMaterial_26nq0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+material = SubResource("ShaderMaterial_a2lfp")
+offset_right = 320.0
+offset_bottom = 240.0
+
+[node name="Bgrnd" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="GridMap" type="GridMap" parent="SubViewportContainer/SubViewport/Bgrnd"]
+mesh_library = ExtResource("3_yf7v7")
+cell_size = Vector3(1, 1, 1)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65534, 65535, 0, 65534, 0, 655360, 65535, 1, 655361, 65535, 65534, 1048577, 0, 65533, 1048576, 1, 65533, 1441792, 0, 2, 1048576, 1, 2, 1441792, 3, 65535, 0, 3, 0, 655360, 2, 65534, 1, 2, 1, 1441793, 0, 65534, 1048579, 0, 65535, 1441794, 1, 65535, 1441794, 0, 0, 1441794, 1, 0, 1441794, 0, 1, 655363, 1, 1, 1441795, 2, 0, 1441795, 2, 65535, 3, 1, 65534, 3, 65535, 65535, 1048579, 65535, 0, 655363, 4, 0, 655360, 4, 65535, 0, 5, 65535, 0, 5, 0, 655360, 1, 65532, 1441792, 0, 65532, 1048576, 0, 65531, 1048576, 1, 65531, 1441792, 6, 0, 655360, 7, 0, 655360, 8, 0, 655360, 9, 0, 655360, 10, 0, 655360, 11, 0, 655360, 6, 65535, 0, 7, 65535, 0, 8, 65535, 0, 9, 65535, 0, 10, 65535, 0, 11, 65535, 0, 65533, 65535, 0, 65533, 0, 655360, 12, 65535, 1048579, 12, 0, 655363, 12, 65534, 1048577, 12, 1, 655361, 13, 65533, 1048577, 13, 2, 655361, 16, 2, 1441793, 17, 1, 1441793, 17, 65534, 1, 16, 65533, 1, 16, 65534, 3, 16, 1, 1441795, 13, 1, 655363, 13, 65534, 1048579, 13, 0, 1048578, 14, 0, 1048578, 15, 0, 1048578, 16, 0, 1048578, 13, 65535, 1048578, 14, 65535, 1048578, 15, 65535, 1048578, 16, 65535, 1048578, 17, 0, 1441795, 17, 65535, 3, 15, 65533, 3, 14, 65533, 1048579, 14, 2, 655363, 15, 2, 1441795, 14, 65534, 1441794, 15, 65534, 1441794, 15, 1, 1441794, 14, 1, 1441794, 15, 65532, 1441792, 15, 65531, 1441792, 15, 65530, 1441792, 15, 65529, 1441792, 15, 65528, 1441792, 14, 65532, 1048576, 14, 65531, 1048576, 14, 65530, 1048576, 14, 65529, 1048576, 14, 65528, 1048576, 18, 0, 655360, 19, 0, 655360, 20, 0, 655360, 21, 0, 655360, 22, 0, 655360, 23, 0, 655360, 24, 0, 655360, 18, 65535, 0, 19, 65535, 0, 20, 65535, 0, 21, 65535, 0, 22, 65535, 0, 23, 65535, 0, 24, 65535, 0, 15, 3, 1441792, 15, 4, 1441792, 15, 5, 1441792, 15, 6, 1441792, 15, 7, 1441792, 15, 8, 1441792, 15, 9, 1441792, 15, 10, 1441792, 15, 11, 1441792, 15, 12, 1441792, 14, 12, 1048576, 14, 11, 1048576, 14, 10, 1048576, 14, 9, 1048576, 14, 8, 1048576, 14, 7, 1048576, 14, 6, 1048576, 14, 5, 1048576, 14, 4, 1048576, 14, 3, 1048576, 14, 13, 1048576, 15, 13, 1441792, 13, 14, 1048577, 16, 14, 1, 17, 15, 1, 17, 18, 1441793, 12, 15, 1048577, 12, 18, 655361, 13, 19, 655361, 16, 19, 1441793, 13, 18, 655363, 16, 18, 1441795, 13, 15, 1048579, 16, 15, 3, 14, 14, 1048579, 15, 14, 3, 14, 15, 1048578, 14, 16, 1048578, 14, 17, 1048578, 14, 18, 1048578, 15, 15, 1048578, 15, 16, 1048578, 15, 17, 1048578, 15, 18, 1048578, 16, 16, 1048578, 16, 17, 1048578, 13, 16, 1048578, 13, 17, 1048578, 14, 19, 655363, 15, 19, 1441795, 17, 17, 1441795, 17, 16, 3, 12, 17, 655363, 12, 16, 1048579, 18, 16, 0, 19, 16, 0, 20, 16, 0, 21, 16, 0, 22, 16, 0, 23, 16, 0, 24, 16, 0, 25, 16, 0, 25, 17, 655360, 24, 17, 655360, 23, 17, 655360, 22, 17, 655360, 21, 17, 655360, 20, 17, 655360, 19, 17, 655360, 18, 17, 655360, 14, 20, 1048576, 14, 21, 1048576, 14, 22, 1048576, 14, 23, 1048576, 14, 24, 1048576, 15, 20, 1441792, 15, 21, 1441792, 15, 22, 1441792, 15, 23, 1441792, 15, 24, 1441792, 11, 16, 0, 10, 16, 0, 9, 16, 0, 8, 16, 0, 7, 16, 0, 6, 16, 0, 5, 16, 0, 11, 17, 655360, 10, 17, 655360, 9, 17, 655360, 8, 17, 655360, 7, 17, 655360, 6, 17, 655360, 5, 17, 655360, 15, 25, 1441792, 15, 26, 1441792, 15, 27, 1441792, 15, 28, 1441792, 15, 29, 1441792, 14, 25, 1048576, 14, 26, 1048576, 14, 27, 1048576, 14, 28, 1048576, 14, 29, 1048576)
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Bgrnd"]
+environment = SubResource("Environment_nt7nx")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment"]
+transform = Transform3D(0.258816, 0, -0.965927, 0, 1, 0, 0.965927, 0, 0.258816, 0.004, 1.2, 0.3)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport/Bgrnd/WorldEnvironment/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0946572, -0.0635182, -0.0521344)
+light_color = Color(0.923462, 0.917707, 0.839921, 1)
+light_energy = 8.556
+light_volumetric_fog_energy = 16.0
+spot_range = 11.2063
+spot_angle = 24.301
+
+[node name="Options" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="Skibidi" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 31
+text = "Settings"
+
+[node name="MarginContainer3" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_top = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer"]
+layout_mode = 2
+
+[node name="VideoChecks" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckBox" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="Windowed" type="CheckBox" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="Vsync" type="CheckBox" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="VideoLabels" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = -1
+
+[node name="Fullscreen" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+text = "Fullscreen"
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Windowed" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+text = "Borderless"
+
+[node name="MarginContainer3" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Vsync" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+text = "Vsync"
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="Sensitivity" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+text = "Sensitivity"
+
+[node name="Sens" type="HSlider" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 0.2
+max_value = 1.0
+step = 0.05
+value = 0.55
+
+[node name="Sensitivity2" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+script = ExtResource("2_3bvsf")
+
+[node name="Framerate" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+text = "Framerate"
+
+[node name="FrameSlider" type="HSlider" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 144.0
+value = 60.0
+
+[node name="frameslab" type="Label" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+script = ExtResource("3_05b6o")
+
+[node name="MarginContainer2" type="MarginContainer" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 42
+
+[node name="Back" type="Button" parent="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Back"
+
+[node name="Menu" type="Control" parent="SubViewportContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_j0nx0")
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="MenuCont" type="VBoxContainer" parent="SubViewportContainer/SubViewport/Menu/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 31
+text = "Game Title
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont"]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+
+[node name="Start" type="Button" parent="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Begin"
+
+[node name="Settings" type="Button" parent="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("3_ylsg8")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "End
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0ubbl")
+volume_db = -11.143
+pitch_scale = 0.72
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cg7t0")
+}
+autoplay = "new_animation"
+speed_scale = 0.058
+
+[connection signal="toggled" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Fullscreen" to="SubViewportContainer/SubViewport/Menu" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Windowed" to="SubViewportContainer/SubViewport/Menu" method="_on_windowed_toggled"]
+[connection signal="toggled" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Vsync" to="SubViewportContainer/SubViewport/Menu" method="_on_vsync_toggled"]
+[connection signal="value_changed" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer/Sens" to="SubViewportContainer/SubViewport/Menu" method="_on_sens_value_changed"]
+[connection signal="value_changed" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer/FrameSlider" to="SubViewportContainer/SubViewport/Menu" method="_on_frame_slider_value_changed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Options/MarginContainer/Skibidi/Back" to="SubViewportContainer/SubViewport/Menu" method="_on_back_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont/Start" to="SubViewportContainer/SubViewport/Menu" method="_on_start_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont/Settings" to="SubViewportContainer/SubViewport/Menu" method="_on_settings_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/Menu/MarginContainer/MenuCont/Quit" to="SubViewportContainer/SubViewport/Menu" method="_on_quit_pressed"]

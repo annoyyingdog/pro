@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://vbb2md3qmayy"]
+
+[ext_resource type="PackedScene" uid="uid://bd6j0naq0nfvn" path="res://assets/Models/weirdthing.glb" id="1_5hst8"]
+[ext_resource type="Script" path="res://weirdthing2.gd" id="2_1jphd"]
+[ext_resource type="Script" path="res://rightarmIK.gd" id="3_aot62"]
+
+[node name="weirdthing" instance=ExtResource("1_5hst8")]
+script = ExtResource("2_1jphd")
+
+[node name="rightarm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="1"]
+process_priority = 1
+root_bone = &"Bone.006.L"
+tip_bone = &"Bone.007.L.002"
+target_node = NodePath("../../rightarmIK")
+script = ExtResource("3_aot62")
+
+[node name="leftarm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2"]
+process_priority = 1
+root_bone = &"Bone.006.R"
+tip_bone = &"Bone.008.R.001"
+target_node = NodePath("../../leftarmIK")
+script = ExtResource("3_aot62")
+
+[node name="rightleg" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+process_priority = 1
+root_bone = &"Bone.005.L"
+tip_bone = &"Bone.010.L.002"
+target_node = NodePath("../../rightlegIK")
+script = ExtResource("3_aot62")
+
+[node name="leftleg" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
+process_priority = 1
+root_bone = &"Bone.005.R"
+tip_bone = &"Bone.010.R.002"
+target_node = NodePath("../../leftlegIK")
+script = ExtResource("3_aot62")
+
+[node name="rightarmIK" type="Marker3D" parent="Armature" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.621636, 1.2285, 0.853915)
+top_level = true
+
+[node name="leftarmIK" type="Marker3D" parent="Armature" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.605555, 1.24051, 0.851345)
+top_level = true
+
+[node name="rightlegIK" type="Marker3D" parent="Armature" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.490842, 0.0985076, 0.854006)
+top_level = true
+
+[node name="leftlegIK" type="Marker3D" parent="Armature" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49282, 0.0882637, 0.856006)
+top_level = true

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kj3ebrvtlp1"]
+
+[ext_resource type="PackedScene" uid="uid://c3xr5qfp5nsdj" path="res://scrapped stuff/tilesetsmoller.glb" id="1_4ysx6"]
+
+[node name="tilesetsmoller" instance=ExtResource("1_4ysx6")]

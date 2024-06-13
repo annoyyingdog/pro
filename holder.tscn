@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2c2axl83p37r"]
+
+[ext_resource type="Script" path="res://holder.gd" id="1_k7ahi"]
+
+[node name="holder" type="Node3D"]
+script = ExtResource("1_k7ahi")

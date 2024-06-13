@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://pc6h81bxsnrf"]
+
+[ext_resource type="Texture2D" uid="uid://bby6xsjy21eok" path="res://assets/textures/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_t48p6"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_fnowb"]
+[ext_resource type="PackedScene" uid="uid://bd6j0naq0nfvn" path="res://assets/Models/weirdthing.glb" id="3_xal5w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvbk6"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dd8gt"]
+panorama = ExtResource("1_t48p6")
+
+[sub_resource type="Sky" id="Sky_ncjm2"]
+sky_material = SubResource("PanoramaSkyMaterial_dd8gt")
+
+[sub_resource type="Environment" id="Environment_2dd1j"]
+background_mode = 2
+sky = SubResource("Sky_ncjm2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6sy57"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dip48"]
+height = 1.2
+
+[sub_resource type="GDScript" id="GDScript_2tmu3"]
+script/source = "extends Node3D
+"
+
+[node name="endgamescene" type="Node3D"]
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_fvbk6")
+
+[node name="Label3D" type="Label3D" parent="stage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5793, -12.1948)
+pixel_size = 0.1
+text = "YOU WIN!"
+
+[node name="Label3D2" type="Label3D" parent="stage"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12.7952, 2.5793, -0.388752)
+pixel_size = 0.1
+text = "YOU WIN!"
+
+[node name="Label3D3" type="Label3D" parent="stage"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.5793, 12.5409)
+pixel_size = 0.1
+text = "YOU WIN!"
+
+[node name="Label3D4" type="Label3D" parent="stage"]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 11.7521, 2.5793, 0.553478)
+pixel_size = 0.1
+text = "YOU WIN!"
+
+[node name="Label3D5" type="Label3D" parent="stage"]
+
+[node name="env" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="env"]
+environment = SubResource("Environment_2dd1j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="env"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="player" type="CharacterBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.27441, 0.0358067, 0)
+script = ExtResource("2_fnowb")
+
+[node name="standing_collision_shape" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 1.00791, -0.009)
+shape = SubResource("CapsuleShape3D_6sy57")
+
+[node name="crouching_collision_shape" type="CollisionShape3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007, 0.6, -0.009)
+visible = false
+shape = SubResource("CapsuleShape3D_dip48")
+disabled = true
+
+[node name="head" type="Node3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="player/head"]
+current = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="player/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7224e-08, -1.68108, 0.39404)
+volume_db = -20.0
+bus = &"Reverb"
+area_mask = 9
+
+[node name="RayCast3D" type="RayCast3D" parent="player"]
+target_position = Vector3(0, 2.22, 0)
+
+[node name="Hand" type="Node3D" parent="player"]
+script = SubResource("GDScript_2tmu3")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="player/Hand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76721, 0.523239)
+light_color = Color(0.923462, 0.917707, 0.839921, 1)
+light_energy = 8.445
+light_volumetric_fog_energy = 16.0
+spot_range = 11.206
+spot_angle = 24.3
+
+[node name="weirdthing" parent="." instance=ExtResource("3_xal5w")]
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -3.0103, -0.025324, 0.221058)

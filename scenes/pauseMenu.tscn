@@ -1,0 +1,289 @@
+[gd_scene load_steps=10 format=3 uid="uid://devot7bpneugg"]
+
+[ext_resource type="Script" path="res://scripts/Menu/pauseMenu.gd" id="1_vo85x"]
+[ext_resource type="Script" path="res://scripts/Menu/Sensitivity2.gd" id="3_akb61"]
+[ext_resource type="Script" path="res://scripts/Menu/frameslab2.gd" id="4_2ddbi"]
+[ext_resource type="FontFile" uid="uid://b5lbnxcj4gkg3" path="res://assets/VCR_OSD_MONO_1.001.ttf" id="4_s6wx3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bdp1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_26h81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a15tb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c3wd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4no21"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vo85x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="MenuCont" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 31
+text = "Paused"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+theme_override_constants/margin_top = 7
+
+[node name="Start" type="Button" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Continue"
+
+[node name="Settings" type="Button" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Back to menu
+"
+
+[node name="Quit2" type="Button" parent="MarginContainer/MenuCont"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+button_mask = 0
+text = "(WILL NOT SAVE PROGRESS)"
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 28
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
+
+[node name="Skibidi" type="VBoxContainer" parent="Options/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 31
+text = "Settings"
+
+[node name="Title2" type="Label" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 7
+text = "These (visually) don't sync from the menu ¯\\_(ツ)_/¯"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_top = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/MarginContainer/Skibidi/MarginContainer"]
+layout_mode = 2
+
+[node name="VideoChecks" type="VBoxContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fullscreen" type="CheckBox" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="Windowed" type="CheckBox" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="Vsync" type="CheckBox" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks"]
+layout_mode = 2
+
+[node name="VideoLabels" type="VBoxContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = -1
+
+[node name="Fullscreen" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+text = "Fullscreen"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Windowed" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+text = "Borderless"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+
+[node name="Vsync" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoLabels"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+text = "Vsync"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+
+[node name="Sensitivity" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+text = "Sensitivity"
+
+[node name="Sens" type="HSlider" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 0.2
+max_value = 1.0
+step = 0.05
+value = 0.55
+
+[node name="Sensitivity2" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+script = ExtResource("3_akb61")
+
+[node name="Framerate" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+text = "Framerate"
+
+[node name="FrameSlider" type="HSlider" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 144.0
+value = 60.0
+
+[node name="frameslab" type="Label" parent="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+script = ExtResource("4_2ddbi")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 42
+
+[node name="Back" type="Button" parent="Options/MarginContainer/Skibidi"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_pressed_color = Color(0.885433, 0.822131, 0, 1)
+theme_override_colors/font_hover_color = Color(0.716245, 0.627794, 0.360699, 1)
+theme_override_fonts/font = ExtResource("4_s6wx3")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bdp1s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_26h81")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a15tb")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_4c3wd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4no21")
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/MenuCont/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuCont/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/MenuCont/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Windowed" to="." method="_on_windowed_toggled"]
+[connection signal="toggled" from="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VideoChecks/Vsync" to="." method="_on_vsync_toggled"]
+[connection signal="value_changed" from="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer/Sens" to="." method="_on_sens_value_changed"]
+[connection signal="value_changed" from="Options/MarginContainer/Skibidi/MarginContainer/HBoxContainer/VBoxContainer/FrameSlider" to="." method="_on_frame_slider_value_changed"]
+[connection signal="pressed" from="Options/MarginContainer/Skibidi/Back" to="." method="_on_back_pressed"]

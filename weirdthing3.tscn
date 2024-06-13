@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://2jc5pnrnnn0b"]
+
+[ext_resource type="PackedScene" uid="uid://vbb2md3qmayy" path="res://weirdthing2.tscn" id="1_xgcs5"]
+[ext_resource type="Script" path="res://weirdthing.gd" id="2_wv0aa"]
+[ext_resource type="Script" path="res://rightarmIktarget.gd" id="3_cr04w"]
+[ext_resource type="Script" path="res://steptargetcontainer.gd" id="4_563b2"]
+[ext_resource type="Script" path="res://rightarmray.gd" id="5_bbvu0"]
+
+[node name="weirdthing" instance=ExtResource("1_xgcs5")]
+script = ExtResource("2_wv0aa")
+ground_offset = 0.5
+
+[node name="rightarmIK" parent="Armature" index="1" node_paths=PackedStringArray("step_target", "adjacent_target", "opposite_target")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.621636, 0.0222054, 0.334242)
+script = ExtResource("3_cr04w")
+step_target = NodePath("../box/rightarmray/rightarmIK")
+adjacent_target = NodePath("../leftarmIK")
+opposite_target = NodePath("../leftlegIK")
+
+[node name="leftarmIK" parent="Armature" index="2" node_paths=PackedStringArray("step_target", "adjacent_target", "opposite_target")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.605555, 0.0248379, 0.346238)
+script = ExtResource("3_cr04w")
+step_target = NodePath("../box/rightarmray2/leftarmIK")
+adjacent_target = NodePath("../rightarmIK")
+opposite_target = NodePath("../rightlegIK")
+
+[node name="rightlegIK" parent="Armature" index="3" node_paths=PackedStringArray("step_target", "adjacent_target", "opposite_target")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.490842, 0.0162373, -0.795735)
+script = ExtResource("3_cr04w")
+step_target = NodePath("../box/rightarmray3/rightlegIK")
+adjacent_target = NodePath("../leftlegIK")
+opposite_target = NodePath("../leftarmIK")
+
+[node name="leftlegIK" parent="Armature" index="4" node_paths=PackedStringArray("step_target", "adjacent_target", "opposite_target")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.49282, 0.014184, -0.805968)
+script = ExtResource("3_cr04w")
+step_target = NodePath("../box/rightarmray4/leftlegIK")
+adjacent_target = NodePath("../rightlegIK")
+opposite_target = NodePath("../rightarmIK")
+
+[node name="box" type="Node3D" parent="Armature" index="5"]
+script = ExtResource("4_563b2")
+
+[node name="rightarmray" type="RayCast3D" parent="Armature/box" index="0" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.996195, 0.14555, 0, 0.00759612, -0.144996, 0.996195, 0.0868241, -1.65731, -0.0871558, -0.496788, 1.10477, -0.426195)
+script = ExtResource("5_bbvu0")
+step_target = NodePath("rightarmIK")
+
+[node name="rightarmIK" type="Marker3D" parent="Armature/box/rightarmray" index="0"]
+transform = Transform3D(0.992963, 0.108146, 0.0482424, 0.0530549, -0.042071, -0.997705, -0.105868, 0.993245, -0.0475128, -0.020261, -0.77315, 0.0105818)
+
+[node name="rightarmray2" type="RayCast3D" parent="Armature/box" index="1" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.996195, -0.14555, 7.6194e-09, -0.00759612, -0.144996, 0.996195, -0.0868239, -1.65732, -0.0871558, 0.501964, 1.10477, -0.426195)
+script = ExtResource("5_bbvu0")
+step_target = NodePath("leftarmIK")
+
+[node name="leftarmIK" type="Marker3D" parent="Armature/box/rightarmray2" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0107132, -0.769133, 0.0140775)
+
+[node name="rightarmray3" type="RayCast3D" parent="Armature/box" index="2" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.996195, 0.14555, -7.6194e-09, -0.00759612, 0.144996, 0.996195, 0.0868241, -1.65731, 0.0871558, -0.38459, 0.193821, -0.426195)
+script = ExtResource("5_bbvu0")
+step_target = NodePath("rightlegIK")
+
+[node name="rightlegIK" type="Marker3D" parent="Armature/box/rightarmray3" index="0"]
+transform = Transform3D(1, 9.31323e-09, -2.93716e-07, 6.98492e-10, -4.47035e-08, -1, 1.86265e-08, 1, -4.47035e-08, -0.000697732, -0.774051, -0.000924528)
+
+[node name="rightarmray4" type="RayCast3D" parent="Armature/box" index="3" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(0.996195, -0.14555, -7.6194e-09, 0.00759613, 0.144996, 0.996195, -0.0868241, -1.65731, 0.0871558, 0.386276, 0.188751, -0.426195)
+script = ExtResource("5_bbvu0")
+step_target = NodePath("leftlegIK")
+
+[node name="leftlegIK" type="Marker3D" parent="Armature/box/rightarmray4" index="0"]
+transform = Transform3D(1, 6.0536e-09, 2.02213e-07, 6.98492e-10, -4.47035e-08, -1, -6.51926e-09, 1, -4.47035e-08, -0.00704578, -0.773157, 0.0138389)
